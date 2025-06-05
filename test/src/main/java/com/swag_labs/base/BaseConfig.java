@@ -30,7 +30,7 @@ public class BaseConfig {
         find(locator).sendKeys(text);
     }
 
-    protected void click(By locator){
+    public void click(By locator){
         find(locator).click();
     }
 
