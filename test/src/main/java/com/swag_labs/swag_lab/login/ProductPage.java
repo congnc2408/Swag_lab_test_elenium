@@ -7,7 +7,7 @@ import static com.swag_labs.utilities.DropdownUtility.*;
 
 public class ProductPage extends BaseConfig {
     private By productHeader =  By.xpath("//div//span[@class = 'title']");
- 
+    private By titleSelect = By.xpath("//select[@class = 'product_sort_container']");
 
 
 
@@ -15,9 +15,9 @@ public class ProductPage extends BaseConfig {
         return find(productHeader).isDisplayed();
     }
 
-    public void selectSortOption(String value,By locator) {
-        selectByValue(locator, value);
-        click(locator);
+    public void selectSortOption(String value) {
+        selectByValue(titleSelect, value);
+        click(titleSelect);
     }
 
     public void selectDropDown( By locator) {

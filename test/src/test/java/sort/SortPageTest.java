@@ -5,24 +5,28 @@ import org.testng.annotations.Test;
 
 import com.swag_labs.base.BaseConfig;
 import com.swag_labs.swag_lab.login.ProductPage;
+import com.swag_labs.swag_lab.login.Purchase;
 
 import base.BaseTest;
 
 public class SortPageTest extends BaseTest {
-    private By titleSelect = By.xpath("//select[@class = 'product_sort_container']");
+   
     private By sortAZ = By.xpath("//select[@class = 'product_sort_container']/option[@value = 'az']");
     private By sortZA = By.xpath("//select[@class = 'product_sort_container']/option[@value = 'za']");
     private By sortLowHigh = By.xpath("//select[@class = 'product_sort_container']/option[@value = 'lohi']");
     private By sortHighLow = By.xpath("//select[@class = 'product_sort_container']/option[@value = 'hilo']");
 
     @Test
-    public void testSortByAZ() {
+    public void testSortByZA() {
         ProductPage productPage = new ProductPage();
         productPage = loginPage.logintoApplication("standard_user", "secret_sauce");
-        baseConfig.delay(2);
-       productPage.selectDropDown( titleSelect);
-        baseConfig.delay(2);
-        ///productPage.setDriver(driver);
-        productPage.selectSortOption("za", sortZA);
+        baseConfig.delay(3);
+        //productPage.selectSortOption("za");
+    }
+
+    @Test
+    public void addToCart(){
+        Purchase purchase = new Purchase();
+        purchase.addToCart();
     }
 }
