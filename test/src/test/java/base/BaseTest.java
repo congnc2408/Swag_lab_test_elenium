@@ -28,8 +28,8 @@ public class BaseTest {
         BaseConfig.setDriver(driver);
         setUtilityDriver();
         loginPage = new LoginPage();
-        driver.manage().timeouts().implicitlyWait(java.time.Duration.ofSeconds(10));
-        driver.manage().deleteAllCookies();
+       // driver.manage().timeouts().implicitlyWait(java.time.Duration.ofSeconds(10));
+        //driver.manage().deleteAllCookies();
     }
 
     @AfterTest
