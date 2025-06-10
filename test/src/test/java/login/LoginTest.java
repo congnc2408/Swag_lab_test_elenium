@@ -11,16 +11,14 @@ import base.BaseTest;
 
 public class LoginTest extends BaseTest {
     String username = "standard_user";
-    String password = "secret_sauce";
+    String password = "123442";
 
-    @Test
+    @Test(priority = 1)
     public void testLogin(){
+        ProductPage productPage = new ProductPage();
         loginPage.setUsername(username);
         loginPage.setPassword(password);
         loginPage.clickLoginButton();
-        ProductPage productPage = new ProductPage();
-        Assert.assertTrue(productPage.isProductPageDisplayed(), "Product page is not displayed after login");
-       
-
+        Assert.assertTrue(productPage.loginFail(), "Product page is not displayed after login");
     }
 }

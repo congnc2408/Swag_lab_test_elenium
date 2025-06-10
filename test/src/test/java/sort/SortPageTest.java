@@ -18,7 +18,7 @@ public class SortPageTest extends BaseTest {
     private By sortLowHigh = By.xpath("//select[@class = 'product_sort_container']/option[@value = 'lohi']");
     private By sortHighLow = By.xpath("//select[@class = 'product_sort_container']/option[@value = 'hilo']");
 
-    @Test(priority = 1)
+    @Test(priority = 2)
     public void testSortByZA() {
         ProductPage productPage = new ProductPage();
         productPage = loginPage.logintoApplication("standard_user", "secret_sauce");
@@ -26,7 +26,7 @@ public class SortPageTest extends BaseTest {
         //productPage.selectSortOption("za");
     }
 
-    @Test(dependsOnMethods = {"testSortByZA"})
+    @Test(dependsOnMethods = "testSortByZA")
     public void addToCart(){
         Purchase purchase = new Purchase();
         purchase.addToCart();

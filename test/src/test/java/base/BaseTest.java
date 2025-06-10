@@ -2,7 +2,10 @@ package base;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
 import com.swag_labs.base.BaseConfig;
@@ -18,16 +21,19 @@ public class BaseTest {
     protected LoginPage loginPage;
     private String baseUrl = "https://www.saucedemo.com/";
 
+
     @BeforeTest
     public void setUp(){
         WebDriverManager.edgedriver().setup();
         driver = new EdgeDriver();
         driver.manage().window().maximize();
         driver.get(baseUrl);
+        loginPage = new LoginPage();
         baseConfig = new BaseConfig();
+        
         BaseConfig.setDriver(driver);
         setUtilityDriver();
-        loginPage = new LoginPage();
+       
        // driver.manage().timeouts().implicitlyWait(java.time.Duration.ofSeconds(10));
         //driver.manage().deleteAllCookies();
     }
